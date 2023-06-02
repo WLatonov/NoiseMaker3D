@@ -1,0 +1,10 @@
+gcc main.cpp -I GCNMeshDenoiser19/algorithm -I GCNMeshDenoiser19/visualization -I OpenMesh_9_0/include -I glm-master/glm -I flann_cpp -I eigen-master -I lz4-dev/lib
+
+g++ MeshViewer.cpp  main.cpp -O2 -I GCNMeshDenoiser19/algorithm -I GCNMeshDenoiser19/visualization -I OpenMesh_9_0/include -I glm-master/glm -I flann_cpp -I eigen-master -I lz4-dev/lib
+
+g++ GCNMeshDenoiser19/visualization/MeshViewer.cpp main.cpp -O2 -I GCNMeshDenoiser19/algorithm -I GCNMeshDenoiser19/visualization -I OpenMesh_9_0/include -I glm-master/glm -I flann_cpp -I eigen-master -I lz4-dev/lib -I libtorch/include -I libtorch\include\torch\csrc\api\include
+
+g++ GCNMeshDenoiser19/visualization/MeshViewer.cpp main.cpp -O2 -I GCNMeshDenoiser19/algorithm -I GCNMeshDenoiser19/visualization -I OpenMesh_9_0/include -I glm-master/glm -I flann_cpp -I eigen-master -I lz4-dev/lib -I libtorch/include -I libtorch/include/torch/csrc/api/include
+
+g++ GCNMeshDenoiser19/visualization/MeshViewer.cpp main.cpp -O2 -I GCNMeshDenoiser19/algorithm -I GCNMeshDenoiser19/visualization -I OpenMesh_9_0/include -I glm-master/glm -I flann_cpp -I eigen-master -I lz4-dev/lib -I libtorch/include -I libtorch/include/torch/csrc/api/include -L libtorch/lib -L OpenMesh_9_0/lib
+
