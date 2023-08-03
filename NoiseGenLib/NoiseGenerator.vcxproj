@@ -135,7 +135,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)pybind11-master\include;C:\Users\20962270\AppData\Local\anaconda3\pkgs\python-3.10.9-h966fe2a_1\include;$(SolutionDir)$(ProjectName)\algorithm;$(SolutionDir)$(ProjectName)\visualization;$(SolutionDir)denoiser_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\pybind11-master\include;C:\Users\admin\anaconda3\pkgs\python-3.8.8-hdbf39b2_5\include;$(SolutionDir)$(ProjectName)\algorithm;$(SolutionDir)$(ProjectName)\visualization;$(SolutionDir)noise_generator_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -144,8 +144,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\20962270\AppData\Local\anaconda3\pkgs\python-3.10.9-h966fe2a_1\libs;$(SolutionDir)denoiser_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>python3.lib;python310.lib;GCNMeshDenoiser19.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\admin\anaconda3\pkgs\python-3.8.8-hdbf39b2_5\libs;$(SolutionDir)noise_generator_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>python3.lib;python38.lib;CPPNoiseGenerator.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
