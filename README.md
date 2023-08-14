@@ -37,10 +37,10 @@ Each node noise generation function has a noiseDirection argument of int type wh
 
 * `GenerateGaussianNoisePy(string modelPath, double sigma, int noiseDirection, int seed)` -- generates node noise distributed by Gaussian PDF: $P(x | \sigma) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{\sigma^{2}}}$.
 
-- string modelPath -- absolute .obj path. Must be specified;
-- double sigma -- standard deviation of the Gaussian noise model. Defaultvalue is 0.2;
-- int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
-- int seed -- random component determination. Default value is 0;
+&emsp;- string modelPath -- absolute .obj path. Must be specified;
+&emsp;- double sigma -- standard deviation of the Gaussian noise model. Defaultvalue is 0.2;
+&emsp;- int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+&emsp;- int seed -- random component determination. Default value is 0;
   
 * `GenerateImpulsiveNoisePy(string modelPath, double sigma, double verticesPortion, int noiseDirection, int seed)`: sigma -- standard deviation of the Gaussian noise model, verticesPortion -- a portion of vertices to be noised,
 
