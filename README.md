@@ -81,13 +81,30 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
   
-* `GenerateLogNormalNoisePy(string meshDir, double m, double s, int noiseDirection, int seed)` -- generates node noise distributed by Log Normal PDF: $P(x | m, s) = \frac{1}{sx \sqrt{2\pi}}\exp{-\frac{(\ln{x} - m)^{2}}{ 2s^{2}}}$.
+* `GenerateLogNormalNoisePy(string meshDir, double m, double s, int noiseDirection, int seed)` -- generates node noise distributed by Lognormal PDF: $P(x | m, s) = \frac{1}{sx \sqrt{2\pi}}\exp{-\frac{(\ln{x} - m)^{2}}{ 2s^{2}}}$.
+
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double m -- mean of the natural logarithm of x. Default value is -5.0;
+  - double s -- standard deviation of the natural logarithm of x. Default value is 40.0;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+  
+* `GenerateUniformNoisePy(string meshDir, double a, double b, int noiseDirection, int seed)` -- generates node noise distributed by Uniform PDF: $P(x | a, b) = \frac{1}{b - a}$.
+
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double a -- lower bound. Default value is 0.2;
+  - double b -- upper bound. Default value is 0.4;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+  
+* `GenerateWeibullNoisePy(string meshDir, double a, double b, int noiseDirection, int seed)` -- generates node noise distributed by Uniform PDF: $P(x | a, b) = \frac{a}{b} (\frac{x}{b})^{a-1} \exp{-\frac{x}{b})^{a}}$.
 
 
   
-* sds
-* sds
-* 
+* dfdfdf
+* dfdfdf
+dfdfd
+dfdf
 * 
 
 
