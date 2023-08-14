@@ -125,10 +125,13 @@ Each topology noise generation function has a meshNoisedDir argument of string t
 
   $P(x | \sigma, D, h) = \begin{case} \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}} \end{case}$
 
-    \begin{cases}
-   ....& \text{.....}\\
-   ....& \text{.....}\\
-   \end{cases}$
+  The absolute value of $ x $ is defined
+  \[ |x| = \sqrt{x^2} = \begin{cases}
+  x & \mbox{ if $ x>0 $}\\
+  0 & \mbox{ if $ x = 0 $}\\
+  -x & \mbox{ if $ x< 0 $}
+  \end{cases}
+  \]
 
   $$
   P(x | \sigma, D, h) = \left\{
