@@ -42,29 +42,31 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
   
-* `GenerateImpulsiveNoisePy(string modelPath, double sigma, double verticesPortion, int noiseDirection, int seed)`: sigma -- standard deviation of the Gaussian noise model, verticesPortion -- a portion of vertices to be noised,
+* `GenerateImpulsiveNoisePy(string modelPath, double sigma, double verticesPortion, int noiseDirection, int seed)` -- generates node noise distributed by Gaussian PDF. The portion of nodes to be noised is specified.
 
-- string modelPath -- absolute .obj path. Must be specified;
-- double sigma -- standard deviation of the Gaussian noise model. Defaultvalue is 0.2;
-- verticesPortion -- a portion of vertices to be noised. Default value is 0.2;
-- int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
-- int seed -- random component determination. Default value is 0;
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double sigma -- standard deviation of the Gaussian noise model. Defaultvalue is 0.2;
+  - verticesPortion -- a portion of vertices to be noised. Default value is 0.2;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
   
 * `GenerateExponentialNoisePy(string meshDir, double lambda, int noiseDirection, int seed)` -- generates node noise distributed by Exponential PDF: $P(x | \lambda) = \lambda e^{-\lambda x}$.
 
-- string modelPath -- absolute .obj path. Must be specified;
-- double lambda -- Exponential distribution $\lambda$ rate parameter. Default value is 7.0;
-- int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
-- int seed -- random component determination. Default value is 0;
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double lambda -- Exponential distribution $\lambda$ rate parameter. Default value is 7.0;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
   
-* GenerateExtremeValueNoisePy(string meshDir, double a, double b, int noiseDirection, int seed)
+* `GenerateExtremeValueNoisePy(string meshDir, double a, double b, int noiseDirection, int seed)` -- generates node noise distributed by Generalized extreme value PDF: $P(x | a, b) = \frac{1}{b} \exp{\frac{a-x}{b} - \exp{\frac{a-x}{b}}}$.
 
-- string modelPath -- absolute .obj path. Must be specified;
-- double sigma -- standard deviation of the Gaussian noise model. Defaultvalue is 0.2;
-- double lambda -- Exponential distribution parameter. Default value is 7.0;
-- int seed -- random component determination. Default value is 0;
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double a -- location parameter. Default value is 0.0;
+  - double b -- scale parameter. Default value is 0.3;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
   
-* ikpoikp
+* `GenerateGammaNoisePy(string meshDir, double alpha, double beta, int noiseDirection, int seed)` -- generates node noise distributed by Gamma PDF: $P(x | \alpha, \beta) = \frac{e^{-x/\beta}}{\beta^{\alpha} \Gamma{\alpha}} \cdot x^{\alpha - 1}$.
+  
 * dfd
 * dfdf
 * dfdfd
