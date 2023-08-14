@@ -73,7 +73,7 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
   
-* `GenerateLaplaceNoisePy(string meshDir, double mu, double b, int noiseDirection, int seed)` -- generates node noise distributed by Laplace PDF: $P(x | \mu, b) = \frac{1}{2b} \exp{-\frac{|x - \mu|}{b}}}$.
+* `GenerateLaplaceNoisePy(string meshDir, double mu, double b, int noiseDirection, int seed)` -- generates node noise distributed by Laplace PDF: $P(x | \mu, b) = \frac{1}{2b} \exp{-\frac{|x - \mu|}{b}}$.
 
   - string modelPath -- absolute .obj path. Must be specified;
   - double mu -- location parameter. Default value is 0.0;
