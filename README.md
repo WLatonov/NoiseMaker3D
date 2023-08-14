@@ -65,11 +65,29 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
   
-* `GenerateGammaNoisePy(string meshDir, double alpha, double beta, int noiseDirection, int seed)` -- generates node noise distributed by Gamma PDF: $P(x | \alpha, \beta) = \frac{e^{-x/\beta}}{\beta^{\alpha} \Gamma{\alpha}} \cdot x^{\alpha - 1}$.
+* `GenerateGammaNoisePy(string meshDir, double alpha, double beta, int noiseDirection, int seed)` -- generates node noise distributed by Gamma PDF: $P(x | \alpha, \beta) = \frac{e^{-x/\beta}}{\beta^{\alpha} \Gamma(\alpha)} \cdot x^{\alpha - 1}$, where $\Gamma(\alpha)$ is Gamma function.
+
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double alpha -- shape parameter. Default value is 0.1;
+  - double beta -- rate parameter. Default value is 0.3;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
   
-* dfd
-* dfdf
-* dfdfd
+* `GenerateLaplaceNoisePy(string meshDir, double mu, double b, int noiseDirection, int seed)` -- generates node noise distributed by Laplace PDF: $P(x | \mu, b) = \frac{1}{2b} \exp{-\frac{|x - \mu|}{b}}}$.
+
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double mu -- location parameter. Default value is 0.0;
+  - double b -- scale parameter. Default value is 0.3;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+  
+* `GenerateLogNormalNoisePy(string meshDir, double m, double s, int noiseDirection, int seed)` -- generates node noise distributed by Log Normal PDF: $P(x | m, s) = \frac{1}{sx \sqrt{2\pi}} \exp{-\frac{(\ln{x} - m)^{2}}{2s^{2}}}$.
+
+
+  
+* sds
+* sds
+* 
 * 
 
 
