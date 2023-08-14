@@ -121,37 +121,52 @@ Each topology noise generation function has a meshNoisedDir argument of string t
   - double percentage -- percentage of faces to be removed. Default value is 5.0. Maximum value is 100;
   - int seed -- random component determination. Default value is 0;
   
-* `GenerateOneRandomClusterTopologyNoisePy(string meshDir, string meshNoisedDir, double standadDeviation, int maxDistance, double divider, int seed)` -- Removes one normally distributed cluster with randomly selected center. The probability of node removing is defined by Gaussian PDF:
-
-  $P(x | \sigma, D, h) = \begin{case} \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}} \end{case}$
-
-  The absolute value of $ x $ is defined
-  \[ |x| = \sqrt{x^2} = \begin{cases}
-  x & \mbox{ if $ x>0 $}\\
-  0 & \mbox{ if $ x = 0 $}\\
-  -x & \mbox{ if $ x< 0 $}
-  \end{cases}
-  \]
-
-  $$
-  P(x | \sigma, D, h) = \left\{
-  \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}} & \mbox{ if x \le D}\\
-  0 & \mbox{if x > D}
-  $$
+* `GenerateOneRandomClusterTopologyNoisePy(string meshDir, string meshNoisedDir, double standadDeviation, int maxDistance, double divider, int seed)` -- Removes one normally distributed cluster with randomly selected center. The probability of node removing is defined by Gaussian PDF: $P(x | \sigma, h) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}}$ if $x \le D$ and $P(x | \sigma, h) = 0$ if $x > D$, where x is a number of edges between node and cluster center.
 
   - string modelPath -- absolute input .obj path. Must be specified;
   - string meshNoisedDir -- absolute output .obj path. Must be specified;
-  - double standadDeviation -- percentage of faces to be removed. Default value is 5.0. Maximum value is 100;
-  - int maxDistance -- 
-  - double divider --
+  - double standadDeviation -- $\sigma$ for probability of node removing. Default value is 0.5;
+  - int maxDistance -- $D$, defines maximal radius of cluster. Default value is 50;
+  - double divider -- $h$, defunes a scale of Gaussian PDF used for removing probability calculation. Default value is 40.0;
   - int seed -- random component determination. Default value is 0;
   
-* ghjgj
-* sdfsdf
-* sdfsdf
-dfdfd
-dfdf
-* 
+* `GenerateOneSpecifiedClusterTopologyNoisePy(string meshDir, string meshNoisedDir, double standadDeviation, int maxDistance, double divider, int clusterCenterVertexId, int seed)` -- Removes one normally distributed cluster with randomly selected center. The probability of node removing is defined by Gaussian PDF: $P(x | \sigma, h) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}}$ if $x \le D$ and $P(x | \sigma, h) = 0$ if $x > D$, where x is a number of edges between node and cluster center.
+
+  - string modelPath -- absolute input .obj path. Must be specified;
+  - string meshNoisedDir -- absolute output .obj path. Must be specified;
+  - double standadDeviation -- $\sigma$ for probability of node removing. Default value is 0.5;
+  - int maxDistance -- $D$, defines maximal radius of cluster. Default value is 50;
+  - double divider -- $h$, defunes a scale of Gaussian PDF used for removing probability calculation. Default value is 40.0;
+  - int clusterCenterVertexId -- vertex id which is selected to be a cluster center. Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+  
+* `GenerateSetOfRandomClustersTopologyNoisePy(string meshDir, string meshNoisedDir, double standadDeviation, int maxDistance, double divider, int clustersNumber, int interClusterDistance, int makeClustersFar, int seed)` -- Removes set of normally distributed clusters. For each cluster the probability of node removing is defined by Gaussian PDF: $P(x | \sigma, h) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}}$ if $x \le D$ and $P(x | \sigma, h) = 0$ if $x > D$, where x is a number of edges between node and cluster center.
+
+  - string modelPath -- absolute input .obj path. Must be specified;
+  - string meshNoisedDir -- absolute output .obj path. Must be specified;
+  - double standadDeviation -- $\sigma$ for probability of node removing. Default value is 0.5;
+  - int maxDistance -- $D$, defines maximal radius of cluster. Default value is 50;
+  - double divider -- $h$, defunes a scale of Gaussian PDF used for removing probability calculation. Default value is 40.0;
+  - int clustersNumber -- the number of clusters to be removed. Default value is 3;
+  - int interClusterDistance -- the minimal distance between clusters centers. Default value is 100;
+  - int makeClustersFar -- defines if distance between clusters centers must be maximal (0 -- minimize distance between centers, 1 -- maximize distance between centers). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+
+* `GenerateSetPatchTopologyNoisePy(string meshDir, string meshNoisedDir, double c1, double c2, double c3, double c4, double c5, int type, double percentage, int ringsNumber, int ringsNumberToDelete, int regionRadius, int seed)` -- Removes specified patches selected by restricting constants.
+
+  - string modelPath -- absolute input .obj path. Must be specified;
+  - string meshNoisedDir -- absolute output .obj path. Must be specified;
+  - double c1 -- Default value is 0.005
+  - double c2 -- Default value is 0.01
+  - double c3 -- Default value is 0.01
+  - double c4 -- Default value is 0.01
+  - double c5 -- Default value is 0.05
+  - int type -- Default value is 3
+  - double percentage -- Default value is 30.0
+  - int ringsNumber -- Default value is 2
+  - int ringsNumberToDelete -- Default value is 4
+  - int regionRadius -- Default value is 16
+  - int seed -- random component determination. Default value is 0;
 
 
 ## Examples
