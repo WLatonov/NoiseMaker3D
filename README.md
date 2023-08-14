@@ -46,7 +46,7 @@ Each node noise generation function has a noiseDirection argument of int type wh
 
   - string modelPath -- absolute .obj path. Must be specified;
   - double sigma -- standard deviation of the Gaussian noise model. Defaultvalue is 0.2;
-  - verticesPortion -- a portion of vertices to be noised. Default value is 0.2;
+  - verticesPortion -- a portion of vertices to be noised. Default value is 0.2. Maximum value is 1;
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
   
@@ -97,12 +97,48 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
   
-* `GenerateWeibullNoisePy(string meshDir, double a, double b, int noiseDirection, int seed)` -- generates node noise distributed by Uniform PDF: $P(x | a, b) = \frac{a}{b} (\frac{x}{b})^{a-1} \exp{-\frac{x}{b})^{a}}$.
+* `GenerateWeibullNoisePy(string meshDir, double a, double b, int noiseDirection, int seed)` -- generates node noise distributed by Uniform PDF: $P(x | a, b) = \frac{a}{b} (\frac{x}{b})^{a-1} \exp{-(\frac{x}{b})^{a}}$.
 
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double a -- shape parameter. Default value is 1.0;
+  - double b -- scale parameter. Default value is 0.2;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
 
+Each topology noise generation function has a meshNoisedDir argument of string type which specifies an absolute output obj path.
+
+* `GenerateRandomVerticesTopologyNoisePy(string meshDir, string meshNoisedDir, double percentage, int seed)` -- Removes random verteces with adjacent faces.
+
+  - string modelPath -- absolute input .obj path. Must be specified;
+  - string meshNoisedDir -- absolute output .obj path. Must be specified;
+  - double percentage -- percentage of nodes to be removed. Default value is 5.0. Maximum value is 100;
+  - int seed -- random component determination. Default value is 0;
   
-* dfdfdf
-* dfdfdf
+* `GenerateRandomFacesTopologyNoisePy(string meshDir, string meshNoisedDir, double percentage, int seed)` -- Removes randomly selected faces.
+
+  - string modelPath -- absolute input .obj path. Must be specified;
+  - string meshNoisedDir -- absolute output .obj path. Must be specified;
+  - double percentage -- percentage of faces to be removed. Default value is 5.0. Maximum value is 100;
+  - int seed -- random component determination. Default value is 0;
+  
+* `GenerateOneRandomClusterTopologyNoisePy(string meshDir, string meshNoisedDir, double standadDeviation, int maxDistance, double divider, int seed)` -- Removes one normally distributed cluster with randomly selected center. The probability of node removing is defined by Gaussian PDF:
+
+  $\[ P(x | \sigma, D, h) = \begin{cases}
+  \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{\sigma^{2}}} & \mbox{ if $ x \le D $}\\
+  0 & \mbox{if $ x > D $}
+  \end{cases}
+  \]$
+
+  - string modelPath -- absolute input .obj path. Must be specified;
+  - string meshNoisedDir -- absolute output .obj path. Must be specified;
+  - double standadDeviation -- percentage of faces to be removed. Default value is 5.0. Maximum value is 100;
+  - int maxDistance -- 
+  - double divider --
+  - int seed -- random component determination. Default value is 0;
+  
+* ghjgj
+* sdfsdf
+* sdfsdf
 dfdfd
 dfdf
 * 
