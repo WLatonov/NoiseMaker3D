@@ -123,11 +123,10 @@ Each topology noise generation function has a meshNoisedDir argument of string t
   
 * `GenerateOneRandomClusterTopologyNoisePy(string meshDir, string meshNoisedDir, double standadDeviation, int maxDistance, double divider, int seed)` -- Removes one normally distributed cluster with randomly selected center. The probability of node removing is defined by Gaussian PDF:
   $$
-  \[ P(x | \sigma, D, h) = \begin{cases}
+  P(x | \sigma, D, h) = \begin{cases}
   \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \frac{x^{2}}{h^{2}\sigma^{2}}} & \mbox{ if x \le D}\\
   0 & \mbox{if x > D}
   \end{cases}
-  \]
   $$
 
   - string modelPath -- absolute input .obj path. Must be specified;
