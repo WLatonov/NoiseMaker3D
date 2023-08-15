@@ -25,9 +25,9 @@ Executable demo, the corresponding code, and some sampled meshes are supplied.
 
 - For .pyd testing the Jupyter notebook is required with python 3.8. If you want to use another python version you need to rebuild the library and change the pyhton version in compiler include libraries and linker additional dependencies:
 
-<img src="/PICS/compiler.png" style="zoom:60%;" />
-<img src="/PICS/linker_1.png" style="zoom:60%;" />
-<img src="/PICS/linker_1.png" style="zoom:60%;" />
+<img src="/PICS/compiler.PNG" style="zoom:60%;" />
+<img src="/PICS/linker_1.PNG" style="zoom:60%;" />
+<img src="/PICS/linker_1.PNG" style="zoom:60%;" />
 
 - For code, Visual Studio 2019 is required.
 
