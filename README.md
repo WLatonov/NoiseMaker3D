@@ -17,6 +17,8 @@ The project was created in order to provide an opportunity to generate noise for
 - [OpenMesh](https://www.graphics.rwth-aachen.de/software/openmesh/);
 - [PyBind11](https://github.com/pybind/pybind11).
 
+All the third party libraries must be placed into deps folder in CPPNoiseGenerator_PyLib folder.
+
 ### Denoising Interface:
 
 Executable demo, the corresponding code, and some sampled meshes are supplied.
@@ -152,54 +154,59 @@ Each topology noise generation function has a meshNoisedDir argument of string t
   - int makeClustersFar -- defines if distance between clusters centers must be maximal (0 -- minimize distance between centers, 1 -- maximize distance between centers). Default value is 0;
   - int seed -- random component determination. Default value is 0;
 
-* `GenerateSetPatchTopologyNoisePy(string meshDir, string meshNoisedDir, double c1, double c2, double c3, double c4, double c5, int type, double percentage, int ringsNumber, int ringsNumberToDelete, int regionRadius, int seed)` -- Removes specified patches selected by restricting constants.
+* `GenerateSetPatchTopologyNoisePy(string meshDir, string meshNoisedDir, double c1, double c2, double c3, double c4, double c5, int type, double percentage, int ringsNumber, int ringsNumberToDelete, int regionRadius, int seed)` -- Removes specified patches selected by restricting constants. The special patches are calculated for each faces in mesh. The patches are classified into four types: Plane, Edge, Corner and Transitional. Any types of patches can be selected to delete. The eigen values $(\lambda_{1}, \lambda_{2}, \lambda_{3})$ are calculated for each patch. The patches are classified as follows:
+
+  If $\lambda_{2} < c_{1}$ and $\lambda_{3} < c_{2}$ then face classified as Plane;
+  If $\lambda_{2} < c_{3}$ and $\lambda_{3} < c_{4}$ then face classified as Edge;
+  If $\lambda_{3} > c_{5}$ then face classified as Corner;
+  In all other cases face is classified as Transitional;
 
   - string modelPath -- absolute input .obj path. Must be specified;
   - string meshNoisedDir -- absolute output .obj path. Must be specified;
-  - double c1 -- Default value is 0.005
-  - double c2 -- Default value is 0.01
-  - double c3 -- Default value is 0.01
-  - double c4 -- Default value is 0.01
-  - double c5 -- Default value is 0.05
-  - int type -- Default value is 3
-  - double percentage -- Default value is 30.0
-  - int ringsNumber -- Default value is 2
-  - int ringsNumberToDelete -- Default value is 4
-  - int regionRadius -- Default value is 16
+  - double c1 -- Patch type parameter. Default value is 0.005;
+  - double c2 -- Patch type parameter. Default value is 0.01;
+  - double c3 -- Patch type parameter. Default value is 0.01;
+  - double c4 -- Patch type parameter. Default value is 0.01;
+  - double c5 -- Patch type parameter. Default value is 0.05;
+  - int type -- identifies types of faces to be removed. Possible values are: 1 -- Plane, 2 -- Edge, 3 -- Corner, 4 -- Transition, 5 -- Plane and Edge, 6 -- Edge and Corner, 7 -- Plane and Corner, 8 -- Plane, Edge and Corner. Default value is 3;
+  - double percentage -- defines percentage of detected faces of specified type(s) to be deleted. The interval of definition is $\[0.0, 100.0\]$. Default value is 30.0;
+  - int ringsNumber -- the number of face rings in the vicinity of each face when Patch type is defined. Default value is 2;
+  - int ringsNumberToDelete -- the number of face rings that will be deleted with each face that will be selected for removing. Default value is 4;
+  - int regionRadius -- the number of faces theat will be considered for Patch type calculation is the vicinity of face. Default value is 16;
   - int seed -- random component determination. Default value is 0;
 
 
 ## Examples
 
 ```bash
-import NoiseGenerator
+import CPPNoiseGenerator
 modelPath = 'absolute_path/model.obj'
 ```
 
 ```bash
-NoiseGenerator.GenerateGaussianNoisePy(modelPath, 0.2, 0)
-NoiseGenerator.GenerateImpulsiveNoisePy(modelPath, 0.2, 0.5, 0)
-NoiseGenerator.GenerateExponentialNoisePy(modelPath, 3, 0)
-NoiseGenerator.GenerateExtremeValueNoisePy(modelPath, 0.0, 0.3, 0)
-NoiseGenerator.GenerateGammaNoisePy(modelPath, 0.1, 0.2, 0)
-NoiseGenerator.GenerateLaplaceNoisePy(modelPath, 0.0, 0.3, 0)
-NoiseGenerator.GenerateLogNormalNoisePy(modelPath, -5, 40, 0)
-NoiseGenerator.GenerateUniformNoisePy(modelPath, 0.2, 0.4, 0)
-NoiseGenerator.GenerateWeibullNoisePy(modelPath, 1, 0.2, 0)
+CPPNoiseGenerator.GenerateGaussianNoisePy(modelPath, 0.2, 0)
+CPPNoiseGenerator.GenerateImpulsiveNoisePy(modelPath, 0.2, 0.5, 0)
+CPPNoiseGenerator.GenerateExponentialNoisePy(modelPath, 3, 0)
+CPPNoiseGenerator.GenerateExtremeValueNoisePy(modelPath, 0.0, 0.3, 0)
+CPPNoiseGenerator.GenerateGammaNoisePy(modelPath, 0.1, 0.2, 0)
+CPPNoiseGenerator.GenerateLaplaceNoisePy(modelPath, 0.0, 0.3, 0)
+CPPNoiseGenerator.GenerateLogNormalNoisePy(modelPath, -5, 40, 0)
+CPPNoiseGenerator.GenerateUniformNoisePy(modelPath, 0.2, 0.4, 0)
+CPPNoiseGenerator.GenerateWeibullNoisePy(modelPath, 1, 0.2, 0)
 ```
 
 ```bash
-import NoiseGenerator
+import CPPNoiseGenerator
 modelPath = 'absolute_path/model.obj'
 modelNoisedPath = 'absolute_path/model_noised.obj'
 ```
 
 ```bash
-NoiseGenerator.GenerateRandomVerticesTopologyNoisePy(modelPath, modelNoisedPath, 5)
-NoiseGenerator.GenerateOneRandomClusterTopologyNoisePy(modelPath, modelNoisedPath, 0.5, 50, 40.0)
-NoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoisedPath, 0.5, 50, 40.0, 4, 40, 0)
-NoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoisedPath, 0.5, 30, 20.0, 5, 40, 1)
-NoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.005, 0.01, 0.01, 0.01, 0.05, 3, 30, 2, 3, 16)
+CPPNoiseGenerator.GenerateRandomVerticesTopologyNoisePy(modelPath, modelNoisedPath, 5)
+CPPNoiseGenerator.GenerateOneRandomClusterTopologyNoisePy(modelPath, modelNoisedPath, 0.5, 50, 40.0)
+CPPNoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoisedPath, 0.5, 50, 40.0, 4, 40, 0)
+CPPNoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoisedPath, 0.5, 30, 20.0, 5, 40, 1)
+CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.005, 0.01, 0.01, 0.01, 0.05, 3, 30, 2, 3, 16)
 ```
 
 
