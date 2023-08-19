@@ -99,6 +99,7 @@ public:
 
 private:
 	unsigned m_seed;
+	std::default_random_engine m_generator;
 
 	std::string m_gtFile;
 	std::string m_noisyFile;
@@ -118,6 +119,7 @@ private:
 
 public:
 	void SetSeed(int seed);
+	void SetGenerator(unsigned seed);
 	void SetNoiseFileName(NoiseParams& noiseParams, int noiseDirection, std::string noise_type);
 	void SetNoiseFileName(std::string noiseFileName);
 	std::vector<double> GetNoiseNumbers(std::string& noiseType, double averageLength, NoiseParams& noiseParams, Noise& noise);

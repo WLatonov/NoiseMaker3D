@@ -114,8 +114,13 @@ void MeshProcessor::getFaceCentroid(TriMesh &mesh, std::vector<TriMesh::Point> &
 }
 
 void MeshProcessor::SetSeed(int seed) { 
-	m_seed = static_cast<unsigned>(seed); 
+	m_seed = static_cast<unsigned>(seed);
+	SetGenerator(m_seed);
 };
+
+void MeshProcessor::SetGenerator(unsigned seed) {
+	m_generator = std::default_random_engine(seed);
+}
 
 void MeshProcessor::SetNoiseFileName(NoiseParams& noiseParams, int noiseDirection, std::string noise_type) {
 	m_noisyFile += "_noise_" + noise_type;
@@ -283,11 +288,11 @@ void MeshProcessor::MakePatchNoise(TriMesh& mesh, TopoNoiseParams& noiseParams) 
 		PatchData* patchData = new PatchData(mesh, m_all_face_neighbor, m_face_area, m_face_centroid, faceIter, ringsNumber, regionRadius);
 		patchData->CalculateEigenValuesAndVectorsForVotingTensor();
 		bool isTooDeleteByType = patchData->CheckIfOneOfTypes(types);
+		delete patchData;
 		if (!isTooDeleteByType) {
 			continue;
 		}
 		deleteHandle.insert(*faceIter);
-		delete patchData;
 	}
 
 	auto percentage = noiseParams.m_percentage;
@@ -406,7 +411,7 @@ void MeshProcessor::DeleteSetOfClusters(TriMesh& mesh, TopoNoiseParams& noisePar
 				//Forming cluster
 				double nonIntDistance = static_cast<double>(distanceNew) / divider;
 				double probabilityNew = GetNormalDistributedProbability(nonIntDistance, standDev);
-				bool needRemove = GetBoolWithSpecifiedProbabiliy(m_seed, probabilityNew);
+				bool needRemove = GetBoolWithSpecifiedProbabiliy(m_generator, probabilityNew);
 				if (needRemove && (distanceNew < maxDist)) {
 					deleteHandle.insert(*vertIter);
 				}
@@ -452,7 +457,8 @@ void MeshProcessor::DeleteOneCluster(TriMesh& mesh, int startVertId, double stan
 			}
 			double nonIntDistance = static_cast<double>(distanceNew) / divider;
 			double probabilityNew = GetNormalDistributedProbability(nonIntDistance, standardDeviation);
-			bool needRemove = GetBoolWithSpecifiedProbabiliy(m_seed, probabilityNew);
+			bool needRemove = GetBoolWithSpecifiedProbabiliy(m_generator, probabilityNew);
+			std::cout << distanceNew << "\t" << probabilityNew << "\t" << needRemove << std::endl;
 			if (needRemove) {
 				deleteHandle.push_back(*vertIter);
 			}
