@@ -11,6 +11,7 @@ std::vector<int> GetRandomBoolVector(unsigned seed, size_t length, double percen
 int GetRandomVertexId(unsigned seed, size_t length);
 double GetNormalDistributedProbability(double x, double stDiv);
 bool GetBoolWithSpecifiedProbabiliy(unsigned seed, double probability);
+bool GetBoolWithSpecifiedProbabiliy(std::default_random_engine& generator, double probability);
 std::vector<bool> GetBoolVectorWithSpecifiedProbabiliy(unsigned seed, int length, double probability);
 
 class Noise
@@ -23,6 +24,7 @@ public:
 	~Noise() {}
 
 public:
+	void SetGenerator(unsigned seed);
 	double generateRandomGaussian(double mean, double StandardDerivation);
 	TriMesh::Normal generateRandomDirection();
 
@@ -40,7 +42,6 @@ public:
 	void randomLogNormalNumbers(unsigned seed, double m, double s, int number, std::vector<double>& RandomNumbers);
 
 private:
-
 	double noise_level, impulsive_level;
 	int noise_type_index, noise_direction_index;
 	double m_noise_level;

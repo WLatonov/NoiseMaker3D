@@ -206,6 +206,11 @@ bool GetBoolWithSpecifiedProbabiliy(unsigned seed, double probability) {
 	return distribution(generator);
 }
 
+bool GetBoolWithSpecifiedProbabiliy(std::default_random_engine& generator, double probability) {
+	std::bernoulli_distribution distribution(probability);
+	return distribution(generator);
+}
+
 std::vector<bool> GetBoolVectorWithSpecifiedProbabiliy(unsigned seed, int length, double probability) {
 	std::vector<bool> result;
 	std::default_random_engine generator(seed);
