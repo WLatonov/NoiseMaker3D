@@ -119,7 +119,7 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
 
-* `GenerateFisherNoise(string meshDir, double d1, double d2, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $(x | d_{1}, d_{2}) = \sqrt{ \frac{(d_{1} x)^{d_{1}} (d_{2})^{d_{2}}}{(d_{1}x + d_{2})^{d_{1} + d_{2}} } / (x B(\frac{d_{1}}{2}, \frac{d_{2}}{2}))$. Here $B$ is beta function.
+* `GenerateFisherNoise(string meshDir, double d1, double d2, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $(x | d_{1}, d_{2}) = \sqrt{ \frac{(d_{1} x)^{d_{1}} (d_{2})^{d_{2}}}{(d_{1}x + d_{2})^{d_{1} + d_{2}} } }/ (x B(\frac{d_{1}}{2}, \frac{d_{2}}{2}))$. Here $B$ is beta function.
 
   - string modelPath -- absolute .obj path. Must be specified;
   - double d1 -- first degree of freedom parameter. Default value is 1.0;
