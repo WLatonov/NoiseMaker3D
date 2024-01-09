@@ -92,6 +92,45 @@ void GenerateWeibullNoise(std::string meshDir, double a, double b, int noiseDire
 	t_meshProcessor->slotGenNoise(t_noiseParams, noiseDirection, "Weibull");
 }
 
+void GenerateCauchyNoise(std::string meshDir, double x0, double gamma, int noiseDirection, int seed)
+{
+	MeshProcessor* t_meshProcessor = new MeshProcessor(meshDir);
+	t_meshProcessor->SetSeed(seed);
+	NoiseParams t_noiseParams;
+	t_noiseParams.m_x0 = x0;
+	t_noiseParams.m_gamma = gamma;
+	t_meshProcessor->slotGenNoise(t_noiseParams, noiseDirection, "Cauchy");
+}
+
+void GenerateFisherNoise(std::string meshDir, double d1, double d2, int noiseDirection, int seed)
+{
+	MeshProcessor* t_meshProcessor = new MeshProcessor(meshDir);
+	t_meshProcessor->SetSeed(seed);
+	NoiseParams t_noiseParams;
+	t_noiseParams.m_d1 = d1;
+	t_noiseParams.m_d2 = d2;
+	t_meshProcessor->slotGenNoise(t_noiseParams, noiseDirection, "Fisher");
+}
+
+void GenerateStudentNoise(std::string meshDir, double n, double scale, int noiseDirection, int seed)
+{
+	MeshProcessor* t_meshProcessor = new MeshProcessor(meshDir);
+	t_meshProcessor->SetSeed(seed);
+	NoiseParams t_noiseParams;
+	t_noiseParams.m_n = n;
+	t_noiseParams.m_scale = scale;
+	t_meshProcessor->slotGenNoise(t_noiseParams, noiseDirection, "Student");
+}
+
+void GenerateChiSquaredNoise(std::string meshDir, double n, double scale, int noiseDirection, int seed)
+{
+	MeshProcessor* t_meshProcessor = new MeshProcessor(meshDir);
+	t_meshProcessor->SetSeed(seed);
+	NoiseParams t_noiseParams;
+	t_noiseParams.m_n = n;
+	t_noiseParams.m_scale = scale;
+	t_meshProcessor->slotGenNoise(t_noiseParams, noiseDirection, "ChiSquared");
+}
 
 
 
@@ -217,6 +256,10 @@ PYBIND11_MODULE(CPPNoiseGenerator, m) {
 	m.def("GenerateLogNormalNoisePy", &GenerateLogNormalNoise, "Generates LogNormal distributed noise", pb::arg("meshDir") = "", pb::arg("m") = double(-5.0), pb::arg("s") = double(40.0), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
 	m.def("GenerateUniformNoisePy", &GenerateUniformNoise, "Generates Unifromly distributed noise", pb::arg("meshDir") = "", pb::arg("a") = double(0.2), pb::arg("b") = double(0.4), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
 	m.def("GenerateWeibullNoisePy", &GenerateWeibullNoise, "Generates Weibull distributed noise", pb::arg("meshDir") = "", pb::arg("a") = double(1.0), pb::arg("b") = double(0.2), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
+	m.def("GenerateCauchyNoisePy", &GenerateCauchyNoise, "Generates Cauchy distributed noise", pb::arg("meshDir") = "", pb::arg("x0") = double(0.0), pb::arg("gamma") = double(0.5), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
+	m.def("GenerateFisherNoisePy", &GenerateFisherNoise, "Generates Fisher distributed noise", pb::arg("meshDir") = "", pb::arg("d1") = double(1.0), pb::arg("d2") = double(1.0), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
+	m.def("GenerateStudentNoisePy", &GenerateStudentNoise, "Generates Student distributed noise", pb::arg("meshDir") = "", pb::arg("n") = double(1.0), pb::arg("scale") = double(1.0), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
+	m.def("GenerateChiSquaredNoisePy", &GenerateChiSquaredNoise, "Generates ChiSquared distributed noise", pb::arg("meshDir") = "", pb::arg("n") = double(1.0), pb::arg("scale") = double(1.0), pb::arg("noiseDirection") = int(0), pb::arg("seed") = int(0));
 
 	m.def("GenerateRandomVerticesTopologyNoisePy", &GenerateRandomVerticesTopologyNoise, "Removes random verteces with adjacent faces", pb::arg("meshDir") = "", pb::arg("meshNoisedDir") = "", pb::arg("percentage") = double(5.0), pb::arg("seed") = int(0));
 	m.def("GenerateRandomFacesTopologyNoisePy", &GenerateRandomFacesTopologyNoise, "Removes random faces", pb::arg("meshDir") = "", pb::arg("meshNoisedDir") = "", pb::arg("percentage") = double(5.0), pb::arg("seed") = int(0));
