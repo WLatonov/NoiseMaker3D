@@ -40,6 +40,10 @@ public:
 	void randomWeibullNumbers(unsigned seed, double a, double b, int number, std::vector<double>& RandomNumbers);
 	void randomGammaNumbers(unsigned seed, double alpha, double beta, int number, std::vector<double>& RandomNumbers);
 	void randomLogNormalNumbers(unsigned seed, double m, double s, int number, std::vector<double>& RandomNumbers);
+	void randomCauchyNumbers(unsigned seed, double x0, double gamma, int number, std::vector<double>& RandomNumbers);
+	void randomFisherNumbers(unsigned seed, double d1, double d2, int number, std::vector<double>& RandomNumbers);
+	void randomStudentNumbers(unsigned seed, double n, int number, std::vector<double>& RandomNumbers);
+	void randomChiSquaredNumbers(unsigned seed, double n, int number, std::vector<double>& RandomNumbers);
 
 private:
 	double noise_level, impulsive_level;

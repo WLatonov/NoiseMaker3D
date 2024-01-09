@@ -174,6 +174,50 @@ void Noise::randomLogNormalNumbers(unsigned seed, double m, double s, int number
 	}
 }
 
+void Noise::randomCauchyNumbers(unsigned seed, double x0, double gamma, int number, std::vector<double>& RandomNumbers)
+{
+	RandomNumbers.resize(number, 0.0);
+	std::default_random_engine generator(seed);
+	std::cauchy_distribution<double> distribution(x0, gamma);
+
+	for (int i = 0; i < number; i++) {
+		RandomNumbers[i] = distribution(generator);
+	}
+}
+
+void Noise::randomFisherNumbers(unsigned seed, double d1, double d2, int number, std::vector<double>& RandomNumbers)
+{
+	RandomNumbers.resize(number, 0.0);
+	std::default_random_engine generator(seed);
+	std::fisher_f_distribution<double> distribution(d1, d2);
+
+	for (int i = 0; i < number; i++) {
+		RandomNumbers[i] = distribution(generator);
+	}
+}
+
+void Noise::randomStudentNumbers(unsigned seed, double n, int number, std::vector<double>& RandomNumbers)
+{
+	RandomNumbers.resize(number, 0.0);
+	std::default_random_engine generator(seed);
+	std::student_t_distribution<double> distribution(n);
+
+	for (int i = 0; i < number; i++) {
+		RandomNumbers[i] = distribution(generator);
+	}
+}
+
+void Noise::randomChiSquaredNumbers(unsigned seed, double n, int number, std::vector<double>& RandomNumbers)
+{
+	RandomNumbers.resize(number, 0.0);
+	std::default_random_engine generator(seed);
+	std::chi_squared_distribution<double> distribution(n);
+
+	for (int i = 0; i < number; i++) {
+		RandomNumbers[i] = distribution(generator);
+	}
+}
+
 std::vector<int> GetRandomBoolVector(unsigned seed, size_t length, double percentage)
 {
 	std::vector<int> result;
