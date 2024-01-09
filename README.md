@@ -229,6 +229,10 @@ CPPNoiseGenerator.GenerateLaplaceNoisePy(modelPath, 0.0, 0.3, 0)
 CPPNoiseGenerator.GenerateLogNormalNoisePy(modelPath, -5, 40, 0)
 CPPNoiseGenerator.GenerateUniformNoisePy(modelPath, 0.2, 0.4, 0)
 CPPNoiseGenerator.GenerateWeibullNoisePy(modelPath, 1, 0.2, 0)
+CPPNoiseGenerator.GenerateCauchyNoisePy(modelPath, 1.0, 0.001, 0)
+CPPNoiseGenerator.GenerateFisherNoisePy(modelPath, 100.0, 100.0, 0)
+CPPNoiseGenerator.GenerateStudentNoisePy(modelPath, 5.0, 0.6, 0)
+CPPNoiseGenerator.GenerateChiSquaredNoisePy(modelPath, 0.1, 0)
 ```
 
 ```bash
