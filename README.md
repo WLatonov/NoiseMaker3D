@@ -111,7 +111,7 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
 
-* `GenerateCauchyNoise(string meshDir, double x0, double gamma, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $(x | x_{0}, \gamma) = \frac{1}{\pi \gamma \[ 1+ \frac{(x - x_{0})^{2}}{\gamma^{2}} \]}$.
+* `GenerateCauchyNoise(string meshDir, double x0, double gamma, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $P(x | x_{0}, \gamma) = \frac{1}{\pi \gamma \[ 1+ \frac{(x - x_{0})^{2}}{\gamma^{2}} \]}$.
 
   - string modelPath -- absolute .obj path. Must be specified;
   - double x0 -- shape parameter. Default value is 0.0;
@@ -119,11 +119,19 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
 
-* `GenerateFisherNoise(string meshDir, double d1, double d2, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $(x | d_{1}, d_{2}) = \sqrt{ \frac{(d_{1} x)^{d_{1}} d_{2}^{d_{2}}}{(d_{1}x + d_{2})^{d_{1} + d_{2}} } }/ (x B(\frac{d_{1}}{2}, \frac{d_{2}}{2}))$. Here $B$ is beta function.
+* `GenerateFisherNoise(string meshDir, double d1, double d2, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $P(x | d_{1}, d_{2}) = \sqrt{ \frac{(d_{1} x)^{d_{1}} d_{2}^{d_{2}}}{(d_{1}x + d_{2})^{d_{1} + d_{2}} } }/ (x B(\frac{d_{1}}{2}, \frac{d_{2}}{2}))$. Here $B$ is beta function.
 
   - string modelPath -- absolute .obj path. Must be specified;
   - double d1 -- first degree of freedom parameter. Default value is 1.0;
   - double d2 -- second degree of freedom parameter. Default value is 1.0;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+ 
+* `GenerateStudentNoise(string meshDir, double n, double scale, int noiseDirection, int seed)` -- generates node noise distributed by PDF: $P(x | \nu) = \frac{\Gamma(\frac{\nu + 1}{2})}{\sqrt{\pi \nu} \Gamma(\frac{\nu}{2})} (1 + \frac{x^{2}}{\nu})^{- \frac{\nu + 1}{2}}$.
+
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double n -- $\nu$ parameter. Default value is 1.0;
+  - double scale -- parameter that determines a noise scale. Default value is 1.0;
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
 
