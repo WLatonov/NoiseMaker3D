@@ -111,6 +111,14 @@ Each node noise generation function has a noiseDirection argument of int type wh
   - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
   - int seed -- random component determination. Default value is 0;
 
+* `GenerateCauchyNoise(string meshDir, double x0, double gamma, int noiseDirection, int seed)` --- generates node noise distributed by PDF: $(x | x_{0}, \gamma) = \frac{1}{\pi \gamma \[ 1+ \frac{(x - x_{0})^{2}}{\gamma^{2}} \]}$.
+
+  - string modelPath -- absolute .obj path. Must be specified;
+  - double x0 -- shape parameter. Default value is 0.0;
+  - double gamma -- scale parameter. Default value is 0.5;
+  - int noiseDirection -- the direction of nodes shift (0 -- node normal direction, 1 -- random direction). Default value is 0;
+  - int seed -- random component determination. Default value is 0;
+
 Each topology noise generation function has a meshNoisedDir argument of string type which specifies an absolute output obj path.
 
 * `GenerateRandomVerticesTopologyNoisePy(string meshDir, string meshNoisedDir, double percentage, int seed)` -- Removes random verteces with adjacent faces.
