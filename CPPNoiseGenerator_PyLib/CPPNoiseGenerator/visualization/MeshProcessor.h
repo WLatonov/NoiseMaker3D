@@ -36,6 +36,18 @@ struct NoiseParams
 	//LogNormal
 	double m_m;
 	double m_s;
+
+	//Cauchy
+	double m_x0;
+	double m_gamma;
+
+	//Fisher
+	double m_d1;
+	double m_d2;
+
+	//Student / Chi Squared
+	double m_n;
+	double m_scale;
 };
 
 // Param structures for different types of topology noise 

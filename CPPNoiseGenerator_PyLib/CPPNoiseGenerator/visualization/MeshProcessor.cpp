@@ -151,6 +151,18 @@ void MeshProcessor::SetNoiseFileName(NoiseParams& noiseParams, int noiseDirectio
 	else if (noise_type == "Weibull") {
 		m_noisyFile += "_" + std::to_string(noiseParams.m_a) + "_" + std::to_string(noiseParams.m_b);
 	}
+	else if (noise_type == "Cauchy") {
+		m_noisyFile += "_" + std::to_string(noiseParams.m_x0) + "_" + std::to_string(noiseParams.m_gamma);
+	}
+	else if (noise_type == "Fisher") {
+		m_noisyFile += "_" + std::to_string(noiseParams.m_d1) + "_" + std::to_string(noiseParams.m_d2);
+	}
+	else if (noise_type == "Student") {
+		m_noisyFile += "_" + std::to_string(noiseParams.m_n);
+	}
+	else if (noise_type == "ChiSquared") {
+		m_noisyFile += "_" + std::to_string(noiseParams.m_n);
+	}
 
 	if (noiseDirection == 1) {
 		m_noisyFile += "_1";
@@ -187,6 +199,18 @@ std::vector<double> MeshProcessor::GetNoiseNumbers(std::string& noiseType, doubl
 	}
 	else if (noiseType == "Weibull") {
 		noise.randomWeibullNumbers(m_seed, noiseParams.m_a, averageLength * noiseParams.m_b, (int)m_mesh->n_vertices(), res);
+	}
+	else if (noiseType == "Cauchy") {
+		noise.randomCauchyNumbers(m_seed, noiseParams.m_x0, averageLength * noiseParams.m_gamma, (int)m_mesh->n_vertices(), res);
+	}
+	else if (noiseType == "Fisher") {
+		noise.randomFisherNumbers(m_seed, noiseParams.m_d1, noiseParams.m_d2, (int)m_mesh->n_vertices(), res);
+	}
+	else if (noiseType == "Student") {
+		noise.randomStudentNumbers(m_seed, noiseParams.m_n, (int)m_mesh->n_vertices(), res);
+	}
+	else if (noiseType == "ChiSquared") {
+		noise.randomChiSquaredNumbers(m_seed, noiseParams.m_n, (int)m_mesh->n_vertices(), res);
 	}
 
 	return res;
@@ -240,7 +264,25 @@ void MeshProcessor::slotGenNoise(NoiseParams& noiseParams, int noiseDirection, s
 			}
 		}
 	}
-	else {
+	else if(noise_type == "Student" || noise_type == "ChiSquared") {
+		std::vector<double> noiseNumbers = GetNoiseNumbers(noise_type, averageLength, noiseParams, *noise);
+		if (noise_direction == Noise::NoiseDirection::kNormal) {
+			int i = 0;
+			for (TriMesh::VertexIter v_it = m_mesh->vertices_begin(); v_it != m_mesh->vertices_end(); v_it++) {
+
+				TriMesh::Point p = m_mesh->point(*v_it) + averageLength * noiseParams.m_scale * m_mesh->normal(*v_it) * noiseNumbers[v_it->idx()];
+				m_mesh->set_point(*v_it, p);
+			}
+		}
+		else if (noise_direction == Noise::NoiseDirection::kRandom) {
+			noise->randomDirections(m_seed, (int)m_mesh->n_vertices(), randomDirections);
+			for (TriMesh::VertexIter v_it = m_mesh->vertices_begin(); v_it != m_mesh->vertices_end(); v_it++) {
+				int index = v_it->idx();
+				TriMesh::Point p = m_mesh->point(*v_it) + averageLength * noiseParams.m_scale * randomDirections[index] * noiseNumbers[index];
+				m_mesh->set_point(*v_it, p);
+			}
+		}
+	} else {
 		std::vector<double> noiseNumbers = GetNoiseNumbers(noise_type, averageLength, noiseParams, *noise);
 		if (noise_direction == Noise::NoiseDirection::kNormal) {
 			int i = 0;
