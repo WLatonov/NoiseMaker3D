@@ -1,4 +1,4 @@
-<img src="/PICS/moving_frames.gif.mp4" style="zoom:60%;" />
+<img src="/PICS/moving_frames.gif"/>
 
 # Noisemaker 3D: comprehensive framework for mesh noise generation
 
