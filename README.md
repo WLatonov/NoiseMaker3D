@@ -1,8 +1,8 @@
-<img src="/PICS/moving_frames.gif"/>
-
 # Noisemaker 3D: comprehensive framework for mesh noise generation
 
 The project was created in order to provide an opportunity to generate noise for 3D meshes. This is necessary to create a dataset for learning-based denoising algorithms. This project provides a comprehensive library with 3D mesh noise generation methods.
+
+<img src="/PICS/moving_frames.gif"/>
 
 ## Code
 
