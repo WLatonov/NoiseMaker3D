@@ -4,6 +4,7 @@ The project was created in order to provide an opportunity to generate noise for
 
 <img src="/PICS/moving_frames.gif"/>
 
+
 ## Code
 
 ### Prerequisites:
