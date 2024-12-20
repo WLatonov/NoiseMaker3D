@@ -270,24 +270,25 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
   </tr>
   
   <tr>
-    <td rowspan="2">Fruit</td>
-    <td>Banana</td>
-    <td>Banana</td>
+    <td rowspan="2">Cascaded Regression</td>
+    <td>Synthetic</td>
+    <td>2.216</td>
+    <td>0.037</td>
+    <td>1102</td>
+    <td>1.325</td>
+    <td>10.703</td>
   </tr>
   <tr>
-    <td>Apple</td>
+    <td>Our</td>
     <td>Banana</td>
   </tr>
   
   <tr>
-    <td rowspan="2">Fruit</td>
-    <td>Banana</td>
+    <td rowspan="2">GeoBi-GNN</td>
+    <td>Synthetic</td>
   </tr>
   <tr>
-    <td>Apple</td>
+    <td>Our</td>
   </tr>
-
-  
-  
 </table>
 
