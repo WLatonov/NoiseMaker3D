@@ -258,5 +258,21 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
 |                     |          Our     |       |      | | | |
 | GeoBi-GNN           |               |       |      | | | |
 
-
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Fruit</td>
+    <td>Banana</td>
+  </tr>
+  <tr>
+    <td>Apple</td>
+  </tr>
+  <tr>
+    <td>Vegetable</td>
+    <td>Carrot</td>
+  </tr>
+</table>
 
