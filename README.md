@@ -252,11 +252,7 @@ CPPNoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoi
 CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.005, 0.01, 0.01, 0.01, 0.05, 3, 30, 2, 3, 16)
 ```
 
-| Model               |   Train on    |   Chamf. dist.    | Cosinde dist. | Abs. area diff.| MSE| Hausdorf dist. |
-| --------------------|---------------| -------------|--| --|--|--|
-| Cascaded Regression | Synthetic              |       |      | | | |
-|                     |          Our     |       |      | | | |
-| GeoBi-GNN           |               |       |      | | | |
+
 
 <table>
   <tr>
@@ -280,15 +276,29 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
   </tr>
   <tr>
     <td>Our</td>
-    <td>Banana</td>
+    <td>2.218</td>
+    <td>0.032</td>
+    <td>1114</td>
+    <td>1.325</td>
+    <td>10.673</td>
   </tr>
   
   <tr>
     <td rowspan="2">GeoBi-GNN</td>
     <td>Synthetic</td>
+    <td>2.252</td>
+    <td>0.032</td>
+    <td>1191</td>
+    <td>1.348</td>
+    <td>10.644</td>
   </tr>
   <tr>
     <td>Our</td>
+    <td>2.265</td>
+    <td>0.033</td>
+    <td>1193</td>
+    <td>1.351</td>
+    <td>10.618</td>
   </tr>
 </table>
 
