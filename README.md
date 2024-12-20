@@ -257,13 +257,13 @@ We provide a benchmark to compare our dataset with Synthetic dataset with Gaussi
 
 <table>
   <tr>
-    <th>**Model**</th>
-    <th>**Train on**</th>   
-    <th>**CD** $\downarrow$</th>
-    <th>**NCD** $\downarrow$ $\times 10^{-2}$</th>
-    <th>**AAD** $\downarrow$ $\times 10^{3}$</th>
-    <th>**MSE** $\downarrow$</th>
-    <th>**HD** $\downarrow$</th>
+    <th>Model</th>
+    <th>Train on</th>   
+    <th>CD $\downarrow$</th>
+    <th>NCD $\downarrow$ $\times 10^{-2}$</th>
+    <th>AAD $\downarrow$ $\times 10^{3}$</th>
+    <th>MSE $\downarrow$</th>
+    <th>HD $\downarrow$</th>
   </tr>
   
   <tr>
