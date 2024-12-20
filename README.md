@@ -252,37 +252,10 @@ CPPNoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoi
 CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.005, 0.01, 0.01, 0.01, 0.05, 3, 30, 2, 3, 16)
 ```
 
-\begin{table}[h]
-\centering
-\begin{tabular}{l|l|r r r}
-\hline
-
-\multirow{3}{*}{Model} & \multirow{3}{*}{\makecell{Train \\ on}} & \multicolumn{3}{c}{Metrics} \\
-
-& & CD $\downarrow$ & NCD $\downarrow$ & HD $\downarrow$  \\
-
-& & $\times 10^{-6}$ & $\times 10^{-2}$ & $\times 10^{-2}$ \\
-\hline
-\multirow{2}{*}{Cascaded} & Synth. &  &  & \\
-& Our &  &  &  \\
-
-\hline
-
-\multirow{2}{*}{GeoBi} & Synth. &  &  &  \\
-
-& Our &  &  &  \\
-
-\hline
-
-\multirow{2}{*}{GCN} & Synth. &  &  & \\
-
-& Our &  &  & \\
-
-\hline
-\end{tabular}
-\caption{Metrics.}
-\label{denoising_results}
-\end{table}
+| FirstName     | LastName      | City     |
+| ------------- | ------------- | -------- |
+| John          | Test1         | NewYork  |
+| Bob           | Test2         | Toronto  |
 
 
 
