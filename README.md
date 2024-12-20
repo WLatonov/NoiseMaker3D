@@ -259,11 +259,11 @@ We provide a benchmark to compare our dataset with Synthetic dataset with Gaussi
   <tr>
     <th>Model</th>
     <th>Train on</th>   
-    <th>Chamf. dist.</th>
-    <th>Cosinde dist.</th>
-    <th>Abs. area diff.</th>
-    <th>MSE</th>
-    <th>Hausdorf dist.</th>
+    <th>Chamf. dist. $\downarrow$</th>
+    <th>Cosinde dist. $\downarrow$</th>
+    <th>Abs. area diff. $\downarrow$</th>
+    <th>MSE $\downarrow$</th>
+    <th>Hausdorf dist. $\downarrow$</th>
   </tr>
   
   <tr>
