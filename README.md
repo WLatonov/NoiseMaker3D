@@ -260,8 +260,8 @@ We provide a benchmark to compare our dataset with Synthetic dataset with Gaussi
     <th>Model</th>
     <th>Train on</th>   
     <th>Chamf. dist. $\downarrow$</th>
-    <th>Cosinde dist. $\downarrow$</th>
-    <th>Abs. area diff. $\downarrow$</th>
+    <th>Cosinde dist. $\downarrow$ $\times 10^{-2}$</th>
+    <th>Abs. area diff. $\downarrow$ $\times 10^{3}$</th>
     <th>MSE $\downarrow$</th>
     <th>Hausdorf dist. $\downarrow$</th>
   </tr>
@@ -270,16 +270,16 @@ We provide a benchmark to compare our dataset with Synthetic dataset with Gaussi
     <td rowspan="2">Cascaded Regression</td>
     <td>Synthetic</td>
     <td>2.216</td>
-    <td>0.037</td>
-    <td>1102</td>
+    <td>3.737</td>
+    <td>1.102</td>
     <td>1.325</td>
     <td>10.703</td>
   </tr>
   <tr>
     <td>Our</td>
     <td>2.218</td>
-    <td>0.032</td>
-    <td>1114</td>
+    <td>3.220</td>
+    <td>1.114</td>
     <td>1.325</td>
     <td>10.673</td>
   </tr>
@@ -288,16 +288,16 @@ We provide a benchmark to compare our dataset with Synthetic dataset with Gaussi
     <td rowspan="2">GeoBi-GNN</td>
     <td>Synthetic</td>
     <td>2.252</td>
-    <td>0.032</td>
-    <td>1191</td>
+    <td>3.256</td>
+    <td>1.191</td>
     <td>1.348</td>
     <td>10.644</td>
   </tr>
   <tr>
     <td>Our</td>
     <td>2.265</td>
-    <td>0.033</td>
-    <td>1193</td>
+    <td>3.323</td>
+    <td>1.193</td>
     <td>1.351</td>
     <td>10.618</td>
   </tr>
