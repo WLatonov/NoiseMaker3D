@@ -260,8 +260,8 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
 
 <table>
   <tr>
-    <th>Item</th>
-    <th>Details</th>
+    <th>Model</th>
+    <th>Train on</th>
   </tr>
   <tr>
     <td rowspan="2">Fruit</td>
@@ -271,8 +271,11 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
     <td>Apple</td>
   </tr>
   <tr>
-    <td>Vegetable</td>
-    <td>Carrot</td>
+    <td rowspan="2">Fruit</td>
+    <td>Banana</td>
+  </tr>
+  <tr>
+    <td>Apple</td>
   </tr>
 </table>
 
