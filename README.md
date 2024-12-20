@@ -252,8 +252,8 @@ CPPNoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoi
 CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.005, 0.01, 0.01, 0.01, 0.05, 3, 30, 2, 3, 16)
 ```
 
-| **Model**           | **Train on**  | **Metrics**  |
-|                     |               | CD    |NCD   | 
+| Model               |   Train on    |   Metrics    |
+|                     |               | CD    | NCD  | 
 | --------------------|---------------| -------------|
 | Cascaded Regression |               |              |
 | GeoBi-GNN           |               |              |
