@@ -254,8 +254,8 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
 
 | Model               |   Train on    |   Chamf. dist.    | Cosinde dist. | Abs. area diff.| MSE| Hausdorf dist. |
 | --------------------|---------------| -------------|--| --|--|--|
-| Cascaded Regression |               |       |      | | | |
-|                     |               |       |      | | | |
+| Cascaded Regression | Synthetic              |       |      | | | |
+|                     |          Our     |       |      | | | |
 | GeoBi-GNN           |               |       |      | | | |
 
 
