@@ -262,6 +262,12 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
   <tr>
     <th>Model</th>
     <th>Train on</th>
+    
+    <th>Chamf. dist.</th>
+    <th>Cosinde dist.</th>
+    <th>Abs. area diff.</th>
+    <th>MSE</th>
+    <th>Hausdorf dist.</th>
   </tr>
   <tr>
     <td rowspan="2">Fruit</td>
