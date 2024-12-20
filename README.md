@@ -255,8 +255,8 @@ CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.
 | Model               |   Train on    |   Metrics    |
 | --------------------|---------------| -------------|
 |                     |               | CD    | NCD  | 
-| Cascaded Regression |               |              |
-| GeoBi-GNN           |               |              |
+| Cascaded Regression |               |       |      |
+| GeoBi-GNN           |               |       |      |
 
 
 
