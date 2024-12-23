@@ -310,8 +310,8 @@ Please cite our paper if you use this code or any of the results:
 @inproceedings{ ,
   title={Noisemaker 3D: comprehensive framework for mesh noise generation.},
   author={Vladimir Mashurov, Vasilii Latonov, Anastasia Martynova, and Natalia Semenova},
-  booktitle={VISIGRAPP (4): VISAPP},
-  pages={},
+  booktitle={ },
+  pages={ },
   year={2025}
 }
 ```
