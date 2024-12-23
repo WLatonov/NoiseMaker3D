@@ -303,3 +303,15 @@ We provide a benchmark to compare our dataset with Synthetic dataset with Gaussi
   </tr>
 </table>
 
+## Citation
+
+Please cite our paper if you use this code or any of the results:
+```
+@inproceedings{ ,
+  title={Noisemaker 3D: comprehensive framework for mesh noise generation.},
+  author={Vladimir Mashurov, Vasilii Latonov, Anastasia Martynova, and Natalia Semenova},
+  booktitle={VISIGRAPP (4): VISAPP},
+  pages={},
+  year={2025}
+}
+```
