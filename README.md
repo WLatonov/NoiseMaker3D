@@ -252,7 +252,7 @@ CPPNoiseGenerator.GenerateSetOfRandomClustersTopologyNoisePy(modelPath, modelNoi
 CPPNoiseGenerator.GenerateSetPatchTopologyNoisePy(modelPath, modelNoisedPath, 0.005, 0.01, 0.01, 0.01, 0.05, 3, 30, 2, 3, 16)
 ```
 
-## Mesh denoiding probing
+## Mesh denoising probing
 We provide a benchmark to compare our dataset with Synthetic dataset with Gaussian noise. We train Cascaded Regression, GeoBi-GNN and GCN-Denoiser on our dataset and on Synthetic. Each trained model is tested on Kinect_Fusion dataset (test part). We use **Chamfer Distance (CD)**, **Mean Cosine Distance of Normals (NCD)**, **Absolute Area Difference (AAD)**, **Mean Squared Error for vertices (MSE)** and **Hausdorff Distance (HD)** to compare the denoising performance.
 
 <table>
